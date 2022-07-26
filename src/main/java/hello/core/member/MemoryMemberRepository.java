@@ -1,12 +1,15 @@
 package hello.core.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository{
 
 //    ConcurrentHashMap? 동시성 이슈를 해결할 수 있음
-    private static Map<Long, Member> store = new HashMap<>();
+    private static final Map<Long, Member> store = new HashMap<>();
 
     @Override
     public void save(Member member) {
